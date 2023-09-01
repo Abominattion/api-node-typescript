@@ -2,11 +2,13 @@ import express from "express";
 import { config } from "dotenv";
 import { GetUsersController } from "./controllers/getUsers/get-users";
 import { MongoGetUsersRepository } from "./repositories/mongo-get-users";
+import { MongoClient } from "./database/mongo";
 
 const main = async () => {
   config();
 
   const app = express();
+  await MongoClient.connect();
 
   const port = process.env.PORT || 8000;
 

@@ -22,8 +22,9 @@ const main = async () => {
     const response = await getUsersController.handle();
 
     res.send(response.body).status(response.statusCode);
-    app.listen(port, () => console.log(`Rodando na porta ${port}`));
   });
+
+  app.listen(port, () => console.log(`Rodando na porta ${port}`));
 };
 
 main();
